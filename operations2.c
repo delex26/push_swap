@@ -6,47 +6,53 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 15:47:27 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/19 18:03:11 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:42:28 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_docket *stack)
+void	ra(t_docket *stack, char *s)
 {
 	int	i;
 	int	tmp;
 
 	i = 0;
 	tmp = stack->a[0];
-	while (i < stack->size_a)
+	if (stack->size_a > 0)
 	{
-		stack->a[i] = stack->a[i + 1];
+		ft_printf("%s", s);
+		while (i < stack->size_a)
+		{
+			stack->a[i] = stack->a[i + 1];
+			i++;
+		}
 		stack->a[i] = tmp;
-		i++;
 	}
-	ft_printf("ra\n");
 }
 
-void	rb(t_docket *stack)
+void	rb(t_docket *stack, char *s)
 {
 	int	i;
 	int	tmp;
 
 	i = 0;
 	tmp = stack->b[0];
-	while (i < stack->size_b)
+	if (stack->size_b > 0)
 	{
-		stack->b[i] = stack->b[i + 1];
+		ft_printf("%s", s);
+		while (i < stack->size_b)
+		{
+			stack->b[i] = stack->b[i + 1];
+			i++;
+		}
 		stack->b[i] = tmp;
-		i++;
 	}
-	ft_printf("rb\n");
 }
 
 void	rr(t_docket *stack)
 {
-	ra(stack);
-	rb(stack);
 	ft_printf("rr\n");
+	ra(stack, "");
+	rb(stack, "");
 }

@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 14:10:29 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/19 01:37:28 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/04/25 10:59:16 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	handle_stack(t_docket *stack, int ac, char **av)
 	stack->size_a = -1;
 	stack->size_b = -1;
 	stack->size_tmp = -1;
-	i = 1;
-	while (i < ac)
+	i = 0;
+	while (++i < ac)
 	{
 		split = ft_split(av[i], ' ');
 		s = -1;
@@ -44,8 +44,8 @@ void	handle_stack(t_docket *stack, int ac, char **av)
 		{
 			stack->a[++stack->size_a] = ft_atoi(split[s]);
 			stack->tmp[++stack->size_tmp] = ft_atoi(split[s]);
+			check_limits(stack, split[s]);
 		}
-		i++;
 		free_split(split);
 	}
 	if (stack->size_a == -1)

@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 23:08:12 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/16 23:02:01 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:12:41 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,38 +22,38 @@ void three_sorting(t_docket *stack)
     {
         if (a < c)
         {
-            sa(stack);
+            sa(stack, "sa\n");
         }
         else
         {
-            ra(stack);
-            sa(stack);
+            ra(stack, "ra\n");
+            sa(stack, "sa\n");
         }
     }
     else if (a < b && b > c)
     {
         if (a < c)
         {
-            rra(stack);
-            sa(stack);
+            rra(stack, "rra\n");
+            sa(stack, "sa\n");
         }
         else
         {
-            rra(stack);
+            rra(stack, "rra\n");
         }
     }
     else if (a > b && b > c)
     {
-        sa(stack);
-        rra(stack);
+        sa(stack, "sa\n");
+        rra(stack, "rra\n");
     }
     else if (a < b && b < c && a > c)
     {
-        rra(stack);
+        rra(stack, "rra\n");
     }
     else if (a > b && b < c && a > c)
     {
-        ra(stack);
+        ra(stack, "ra\n");
     }
 }
 

@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 10:46:12 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/19 01:37:41 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:30:17 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,28 +86,18 @@ void	check_duplicate(t_docket *stack, int *a)
 }
 }
 
-void check_limits(t_docket *stack, int ac, char **a) 
+void	check_limits(t_docket *stack, char *a)
 {
-    int i;
-    int num;
-
-    i = 1;
-    while (i < ac) 
-    {
-        if (check_max(a[i]) > 10)
-            error_detected(stack);
-        num = ft_atoi(a[i]);
-        if (num > 2147483647 || num < -2147483648)
-          error_detected(stack);
-        i++;
-    }
+	if (check_max(a) > 10)
+		error_detected(stack);
+	if (ft_atoi(a) > 2147483647 || ft_atoi(a) < -2147483648)
+		error_detected(stack);
 }
 
 void  check_input(t_docket *stack, int ac, char **a)
 {
   check_if_empty(stack, ac, a);
   check_digit(stack, ac, a);
-  check_limits(stack, ac, a);
 }
 
 

@@ -6,34 +6,42 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:53:14 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/19 18:03:01 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:35:53 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_docket *stack)
+void	sa(t_docket *stack, char *s)
 {
 	int	tmp;
 
-	tmp = stack->a[0];
-	stack->a[0] = stack->a[1];
-	stack->a[1] = tmp;
-	ft_printf("sa\n");
+	if (stack->size_a > 0)
+	{
+		ft_printf("%s", s);
+		tmp = stack->a[0];
+		stack->a[0] = stack->a[1];
+		stack->a[1] = tmp;
+	}
 }
 
-void	sb(t_docket *stack)
+void	sb(t_docket *stack, char *s)
 {
 	int	tmp;
 
-	tmp = stack->b[0];
-	stack->b[0] = stack->b[1];
-	stack->b[1] = tmp;
-	ft_printf("sb\n");
+	if (stack->size_b > 0)
+	{
+		ft_printf("%s", s);
+		tmp = stack->b[0];
+		stack->b[0] = stack->b[1];
+		stack->b[1] = tmp;
+	}
 }
+
 void	ss(t_docket *stack)
 {
-	sa(stack);
-	sb(stack);
 	ft_printf("ss\n");
+	sa(stack, "");
+	sb(stack, "");
 }
+

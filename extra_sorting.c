@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 23:09:54 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/16 23:19:04 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:22:06 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	handle_sort(t_docket *stack, int size_a, int size_b)
 	else if (stack->a[0] > stack->a[1] && stack->b[0] < stack->b[1])
 		ss(stack);
 	else if (size_a < stack->a[0])
-		rra(stack);
+		rra(stack, "rra\n");
 	else if (size_b > stack->b[0] && stack->size_b >= 1)
-		rrb(stack);
+		rrb(stack, "rrb\n");
 	else if (stack->a[0] > stack->a[1])
-		sa(stack);
+		sa(stack, "sa\n");
 	else if (stack->b[0] < stack->b[1] && stack->size_b >= 1)
-		sb(stack);
+		sb(stack, "sb\n");
 	else if (check_if_sorted(stack, stack->a))
 		pa(stack);
 	else

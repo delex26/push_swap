@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 13:45:50 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/19 17:59:41 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:29:59 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ typedef struct s_docket
 }		t_docket;
 
 //operations//
-void	sa(t_docket *stack);
-void	sb(t_docket *stack);
+void	sa(t_docket *stack, char *s);
+void	sb(t_docket *stack, char *s);
 void	ss(t_docket *stack);
-void	ra(t_docket *stack);
-void	rb(t_docket *stack);
+void	ra(t_docket *stack, char *s);
+void	rb(t_docket *stack, char *s);
 void	rr(t_docket *stack);
-void	rra(t_docket *stack);
-void	rrb(t_docket *stack);
+void	rra(t_docket *stack, char *s);
+void	rrb(t_docket *stack, char *s);
 void	rrr(t_docket *stack);
 void	pa(t_docket *stack);
 void	pb(t_docket *stack);
@@ -49,7 +49,7 @@ void  	error_detected(t_docket *stack);
 void	check_if_empty(t_docket *stack, int ac, char **a);
 void 	check_digit(t_docket *stack,int ac, char **a);
 void	check_duplicate(t_docket *stack, int *a);
-void 	check_limits(t_docket *stack, int ac, char **a);
+void	check_limits(t_docket *stack, char *a);
 void  	check_input(t_docket *stack, int ac, char **a);
 void	handle_sort(t_docket *stack, int size_a, int size_b);
 void	extra_sorting(t_docket *stack);

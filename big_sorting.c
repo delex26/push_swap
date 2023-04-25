@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 13:41:11 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/17 01:24:18 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/04/25 11:21:12 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	handle_pb(t_docket *stack, int min, int max, int len)
 		else if (stack->a[0] < stack->tmp[min])
 		{
 			pb(stack);
-			rb(stack);
+			rb(stack, "rb\n");
 			if (max <= len - 1)
 			{
 				min++;
@@ -36,7 +36,7 @@ void	handle_pb(t_docket *stack, int min, int max, int len)
 			}
 		}
 		else if ((stack->a[0] > stack->tmp[max]))
-			ra(stack);
+			ra(stack, "ra\n");
 	}
 }
 
@@ -61,10 +61,10 @@ void	push_to_a(t_docket *stack)
 		big = stack->b[find_big(stack)];
 		if (find_big(stack) <= stack->size_b / 2)
 			while (stack->b[0] != big)
-				rb(stack);
+				rb(stack, "rb\n");
 		else if (find_big(stack) > stack->size_b / 2)
 			while (stack->b[0] != big)
-				rrb(stack);
+				rrb(stack, "rrb\n");
 		pa(stack);
 	}
 }

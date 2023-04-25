@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 19:39:46 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/19 17:58:47 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/04/25 14:29:06 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		exit(0);
-	stack.a = malloc(sizeof(int) * num_of_args(ac, av));
-	stack.b = malloc(sizeof(int) * num_of_args(ac, av));
-	stack.tmp = malloc(sizeof(int) * num_of_args(ac, av));
-	ft_memset(stack.a, 0, sizeof(int) * num_of_args(ac, av));
-	ft_memset(stack.b, 0, sizeof(int) * num_of_args(ac, av));
-	ft_memset(stack.tmp, 0, sizeof(int) * num_of_args(ac, av));
+	stack.a = calloc(num_of_args(ac, av), sizeof(int));
+	stack.b = calloc(num_of_args(ac, av), sizeof(int));
+	stack.tmp = calloc(num_of_args(ac, av), sizeof(int));
 	handle_stack(&stack, ac, av);
 	if (stack.size_a > 100)
 		big_sorting(&stack, 35);
