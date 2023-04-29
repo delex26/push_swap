@@ -12,120 +12,63 @@
 
 #include "push_swap.h"
 
-int	count_inputs(char *str)
-{
-	int	check;
-	int	input;
-	int	i;
-
-	check = 0;
-	input = 0;
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == ' ')
-			check = 0;
-		else if (check == 0)
-		{
-			check = 1;
-			input++;
-		}
-		i++;
-	}
-	return (input);
-}
-
-int	num_of_args(int ac, char **str)
+int	count_extra(char *str)
 {
 	int	count;
-	int	j;
 
-	count = 0;
-	j = 1;
-	while (j < ac)
+	count = 1;
+	while (*str != '\0')
 	{
-		count = count + count_inputs(str[j]);
-		j++;
+		if (*str == ' ')
+		{
+			count++;
+		}
+		str++;
 	}
 	return (count);
 }
 
-int	check_max(char *str)
+int	args_num(int ac, char **str)
 {
-	size_t	i;
-	int		check;
-	int		count;
+	int	count;
+	int	i;
 
-	i = 0;
-	check = 0;
 	count = 0;
-	while (i < ft_strlen(str))
+	i = 1;
+	while (i < ac)
 	{
-		while (i < ft_strlen(str) && check == 0)
-		{
-			if (str[i] == '0' || str[i] == '+' || str[i] == '-')
-				i++;
-			else
-				check = 1;
-		}
-		count++;
+		count += count_extra(str[i]);
 		i++;
 	}
 	return (count);
 }
 
-// int count_inputs(char *str) 
-// {
-//     int input = 0;
-//     int check = 1; 
-//     char *c = str;
+int	num_size(char *str)
+{
+	int	count;
 
-//     while (*c != '\0') 
-// 	{
-//         if (*c == ' ') 
-// 		{
-//             check = 1;
-//         } 
-// 		else if (check)
-// 		{
-//             input++;
-//             check = 0;
-//         }
-//         c++;
-//     }
+	count = 0;
+	if (*str == '+' || *str == '-')
+	{
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		count++;
+		str++;
+	}
+	return (count);
+}
 
-//     return (input);
-// }
+void	free_split(char **split)
+{
+	int	i;
 
-// int num_of_args(int ac, char **str) 
-// {
-//     int count = 0;
-//     char **s = str + 1;
-
-//     while (ac-- > 1) 
-// 	{
-//         count += count_inputs(*s++);
-//     }
-
-//     return count;
-// }
-
-// int check_max(char *str) 
-// {
-//     int digit_count = 0;
-//     char *c = str;
-
-//     while (*c != '\0') 
-// 	{
-//         if (*c >= '0' && *c <= '9') 
-// 		{
-//             digit_count++;
-//         }
-//         c++;
-//     }
-
-//     return digit_count;
-// }
-
-
-
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}

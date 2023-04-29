@@ -6,29 +6,22 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 14:10:29 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/25 10:59:16 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:44:46 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- #include "push_swap.h"
+#include "push_swap.h"
 
-void	free_split(char **split)
+void	check_input(t_docket *stack, int ac, char **a)
 {
-	int	i;
-
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
+	check_if_empty(stack, ac, a);
+	check_digit(stack, ac, a);
 }
 
 void	handle_stack(t_docket *stack, int ac, char **av)
 {
 	int		i;
-	int		s;
+	int		j;
 	char	**split;
 
 	check_input(stack, ac, av);
@@ -39,18 +32,17 @@ void	handle_stack(t_docket *stack, int ac, char **av)
 	while (++i < ac)
 	{
 		split = ft_split(av[i], ' ');
-		s = -1;
-		while (split[++s])
+		j = -1;
+		while (split[++j])
 		{
-			stack->a[++stack->size_a] = ft_atoi(split[s]);
-			stack->tmp[++stack->size_tmp] = ft_atoi(split[s]);
-			check_limits(stack, split[s]);
+			stack->a[++stack->size_a] = ft_atoi(split[j]);
+			stack->lim[++stack->size_tmp] = ft_atoi(split[j]);
+			check_limits(stack, split[j]);
 		}
 		free_split(split);
 	}
 	if (stack->size_a == -1)
 		error_detected(stack);
 	check_duplicate(stack, stack->a);
-	sort_tmp(stack, stack->tmp, stack->size_tmp);
+	sort_temporary(stack, stack->lim, stack->size_tmp);
 }
-
