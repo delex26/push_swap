@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 10:46:12 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/05/01 21:38:21 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/02 00:35:26 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_detected(t_docket *stack)
 {
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	free(stack->a);
 	free(stack->b);
 	free(stack->lim);

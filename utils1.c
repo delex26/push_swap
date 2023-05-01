@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:14:02 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/05/01 19:43:59 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/02 00:35:39 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,24 @@ int	args_num(int ac, char **str)
 
 int	num_size(char *str)
 {
-	int	count;
+	size_t	i;
+	int		check;
+	int		count;
 
+	i = 0;
+	check = 0;
 	count = 0;
-	if (*str == '+' || *str == '-')
+	while (i < ft_strlen(str))
 	{
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
+		while (i < ft_strlen(str) && check == 0)
+		{
+			if (str[i] == '0' || str[i] == '+' || str[i] == '-')
+				i++;
+			else
+				check = 1;
+		}
 		count++;
-		str++;
+		i++;
 	}
 	return (count);
 }
