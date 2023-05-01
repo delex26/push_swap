@@ -5,50 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/29 15:48:47 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/29 15:48:47 by hben-mes         ###   ########.fr       */
+/*   Created: 2023/05/01 19:14:02 by hben-mes          #+#    #+#             */
+/*   Updated: 2023/05/01 19:43:59 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(int *i, int *j)
+int	count_extra(char *str)
 {
-	int	tmp;
+	int	count;
 
-	tmp = *i;
-	*i = *j;
-	*j = tmp;
+	count = 1;
+	while (*str != '\0')
+	{
+		if (*str == ' ')
+		{
+			count++;
+		}
+		str++;
+	}
+	return (count);
 }
 
-int	sort_check(t_docket *stack, int *arr)
+int	args_num(int ac, char **str)
 {
+	int	count;
 	int	i;
 
-	i = 0;
-	while (i < stack->size_a)
+	count = 0;
+	i = 1;
+	while (i < ac)
 	{
-		if (arr[i] > arr[i + 1])
-			return (0);
+		count += count_extra(str[i]);
 		i++;
 	}
-	return (1);
+	return (count);
 }
 
-void	sort_lim(t_docket *stack, int *arr, int l)
+int	num_size(char *str)
+{
+	int	count;
+
+	count = 0;
+	if (*str == '+' || *str == '-')
+	{
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		count++;
+		str++;
+	}
+	return (count);
+}
+
+void	free_split(char **split)
 {
 	int	i;
 
 	i = 0;
-	while (!sort_check(stack, arr))
+	while (split[i])
 	{
-		i = 0;
-		while (i < l)
-		{
-			if (arr[i] > arr[i + 1])
-				swap(&arr[i], &arr[i + 1]);
-			i++;
-		}
+		free(split[i]);
+		i++;
 	}
+	free(split);
 }
-

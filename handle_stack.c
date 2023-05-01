@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/11 14:10:29 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/05/01 03:30:54 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/01 19:13:21 by hben-mes          #+#    #+#             */
+/*   Updated: 2023/05/01 21:22:04 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,24 @@ void	handle_stack(t_docket *stack, int ac, char **av)
 {
 	int		i;
 	int		j;
-	char	**split;
+	char	**s;
 
 	check_cases(stack, ac, av);
 	stack->size_a = -1;
 	stack->size_b = -1;
 	stack->size_lim = -1;
-	i = 1;
-	while (i < ac)
+	i = 0;
+	while (++i < ac)
 	{
-		split = ft_split(av[i], ' ');
-		j = 0;
-		while (split[j])
+		s = ft_split(av[i], ' ');
+		j = -1;
+		while (s[++j])
 		{
-			stack->a[++stack->size_a] = ft_atoi(split[j]);
-			stack->lim[++stack->size_lim] = ft_atoi(split[j]);
-			check_limits(stack, split[j]);
+			stack->a[++stack->size_a] = ft_atoi(s[j]);
+			stack->lim[++stack->size_lim] = ft_atoi(s[j]);
+			check_limits(stack, s[j]);
 		}
-		free_split(split);
+		free_split(s);
 	}
 	if (stack->size_a == -1)
 		error_detected(stack);

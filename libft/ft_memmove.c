@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:32:06 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/02/14 12:23:58 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/01 19:18:33 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,4 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		}
 	}
 	return (dst);
-}
-int main()
-{
-	char d[] = "1337leetcode";
-	printf("%s", ft_memmove(d, d + 4, 4));
 }

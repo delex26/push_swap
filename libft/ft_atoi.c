@@ -6,36 +6,35 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 14:44:06 by hben-mes          #+#    #+#             */
-/*   Updated: 2022/10/21 16:41:04 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/01 20:05:50 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(char *str)
 {
-	int	i;
-	int	n;
-	int	res;
+	long		res;
+	int			sign;
+	int			i;
 
-	i = 0;
 	res = 0;
-	n = 1;
-	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+	sign = 1;
+	i = 0;
+	while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
 		i++;
-	if (str[i] == '-')
+	if (str[i] == '+' || str[i] == '-')
 	{
-		n = -1;
+		if (str[i] == '-')
+			sign = -sign;
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
-		res = res * 10 + str[i] - '0';
+		res = (res * 10) + (str[i] - 48);
 		i++;
 	}
-	return (n * res);
+	return (res * sign);
 }
 // int main()
 // {

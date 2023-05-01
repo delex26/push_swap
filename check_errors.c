@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 10:46:12 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/29 15:42:52 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/01 21:38:21 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_detected(t_docket *stack)
 {
-	ft_printf("Error Detected\n");
+	ft_printf("Error\n");
 	free(stack->a);
 	free(stack->b);
 	free(stack->lim);
@@ -46,6 +46,8 @@ void	check_if_empty(t_docket *stack, int ac, char **a)
 
 void	check_digit(t_docket *stack, int ac, char **a)
 {
+	int	bef;
+	int	aft;
 	int	i;
 	int	j;
 
@@ -53,9 +55,16 @@ void	check_digit(t_docket *stack, int ac, char **a)
 	while (i < ac)
 	{
 		j = 0;
-		while (a[i][j])
+		while (a[i][j] != '\0')
 		{
-			if (!ft_isdigit(a[i][j]))
+			bef = a[i][j - 1];
+			aft = a[i][j + 1];
+			if ((!ft_isdigit(a[i][j]) && a[i][j] != ' '
+				&& a[i][j] != '-' && a[i][j] != '+')
+				|| (a[i][j] == '-' &&
+					(!ft_isdigit(aft) || ft_isdigit(bef)))
+				|| (a[i][j] == '+' &&
+					(!ft_isdigit(aft) || ft_isdigit(bef))))
 				error_detected(stack);
 			j++;
 		}
@@ -84,8 +93,8 @@ void	check_duplicate(t_docket *stack, int *a)
 
 void	check_limits(t_docket *stack, char *a)
 {
-	if (num_size(a) > 10)
+	if (ft_atoi(a) > INT_MAX || ft_atoi(a) < INT_MIN)
 		error_detected(stack);
-	if (ft_atoi(a) > 2147483647 || ft_atoi(a) < -2147483648)
+	if (num_size(a) > 10)
 		error_detected(stack);
 }

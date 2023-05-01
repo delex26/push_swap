@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:39:16 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/02/14 12:19:58 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/01 20:05:08 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			ft_strncmp(const char *s1, const char *s2, size_t n);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t n);
 size_t		ft_strlcpy(char *dest, const char *src, unsigned int size);
 size_t		ft_strlcat(char *dest, const char *src, size_t destsize );
-int			ft_atoi(const char *str);
+long		ft_atoi(char *str);
 void		*ft_memset(void *b, int c, size_t len);
 void		ft_bzero(void *s, size_t n);
 void		*ft_memcpy(void *dest, const void *src, size_t n);

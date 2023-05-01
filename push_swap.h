@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/26 13:45:50 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/05/01 03:24:42 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/01 19:13:43 by hben-mes          #+#    #+#             */
+/*   Updated: 2023/05/01 20:27:14 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "./ft_printf/ft_printf.h"
 # include "./libft/libft.h"
+# include <limits.h>
 
 typedef struct s_docket
 {

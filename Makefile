@@ -20,8 +20,9 @@ SRC =	big_sorting.c\
 		operations3.c\
 		operations4.c\
 		three_sorting.c\
-		utils.c\
 		utils1.c\
+		utils2.c\
+		utils3.c\
 		
 OBJS = $(SRC:.c=.o) 
 
