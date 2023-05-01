@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 13:45:50 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/29 15:39:03 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/01 03:24:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_docket
 	int	*lim;
 	int	size_a;
 	int	size_b;
-	int	size_tmp;
+	int	size_lim;
 }		t_docket;
 
 //operations//
@@ -50,7 +50,7 @@ void	check_if_empty(t_docket *stack, int ac, char **a);
 void	check_digit(t_docket *stack, int ac, char **a);
 void	check_duplicate(t_docket *stack, int *a);
 void	check_limits(t_docket *stack, char *a);
-void	check_input(t_docket *stack, int ac, char **a);
+void	check_cases(t_docket *stack, int ac, char **a);
 void	control_sorting(t_docket *stack, int size_a, int size_b);
 void	extra_sorting(t_docket *stack);
 void	free_split(char **split);
@@ -59,9 +59,9 @@ void	three_sorting(t_docket *stack);
 int		count_extra(char *str);
 int		args_num(int ac, char **str);
 int		num_size(char *str);
-int		verify_temporary(t_docket *stack, int *arr);
+int		sort_check(t_docket *stack, int *arr);
 void	swap(int *i, int *j);
-void	sort_temporary(t_docket *stack, int *arr, int len);
+void	sort_lim(t_docket *stack, int *arr, int len);
 int		find_biggest(t_docket *stack);
 
 #endif

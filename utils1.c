@@ -12,7 +12,16 @@
 
 #include "push_swap.h"
 
-int	verify_temporary(t_docket *stack, int *arr)
+void	swap(int *i, int *j)
+{
+	int	tmp;
+
+	tmp = *i;
+	*i = *j;
+	*j = tmp;
+}
+
+int	sort_check(t_docket *stack, int *arr)
 {
 	int	i;
 
@@ -26,24 +35,15 @@ int	verify_temporary(t_docket *stack, int *arr)
 	return (1);
 }
 
-void	swap(int *i, int *j)
-{
-	int	tmp;
-
-	tmp = *i;
-	*i = *j;
-	*j = tmp;
-}
-
-void	sort_temporary(t_docket *stack, int *arr, int len)
+void	sort_lim(t_docket *stack, int *arr, int l)
 {
 	int	i;
 
 	i = 0;
-	while (!verify_temporary(stack, arr))
+	while (!sort_check(stack, arr))
 	{
 		i = 0;
-		while (i < len)
+		while (i < l)
 		{
 			if (arr[i] > arr[i + 1])
 				swap(&arr[i], &arr[i + 1]);
@@ -52,20 +52,3 @@ void	sort_temporary(t_docket *stack, int *arr, int len)
 	}
 }
 
-int	find_biggest(t_docket *stack)
-{
-	int	biggest;
-	int	i;
-
-	biggest = 0;
-	i = 1;
-	while (i <= stack->size_b)
-	{
-		if (stack->b[biggest] < stack->b[i])
-		{
-			biggest = i;
-		}
-		i++;
-	}
-	return (biggest);
-}

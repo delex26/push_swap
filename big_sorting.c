@@ -3,53 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   big_sorting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 13:41:11 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/04/29 15:39:02 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/01 04:02:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	control_pb(t_docket *stack, int min, int max, int len)
-{
-	while (stack->size_a != -1)
-	{
-		if (stack->a[0] >= stack->lim[min] && stack->a[0] <= stack->lim[max])
-		{
-			pb(stack);
-			if (max <= len - 1)
-			{
-				min++;
-				max++;
-			}
-		}
-		else if (stack->a[0] < stack->lim[min])
-		{
-			pb(stack);
-			rb(stack, "rb\n");
-			if (max <= len - 1)
-			{
-				min++;
-				max++;
-			}
-		}
-		else if ((stack->a[0] > stack->lim[max]))
-			ra(stack, "ra\n");
-	}
-}
-
 void	make_pb(t_docket *stack, int range)
 {
-	int	len;
-	int	min;
-	int	max;
+	int	l;
+	int	first;
+	int	last;
 
-	len = stack->size_a;
-	min = 0;
-	max = range;
-	control_pb(stack, min, max, len);
+	l = stack->size_a;
+	first = 0;
+	last = range;
+	control_pb(stack, first, last, l);
 }
 
 void	make_pa(t_docket *stack)
