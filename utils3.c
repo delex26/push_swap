@@ -32,16 +32,7 @@ void	control_pb(t_docket *stack, int first, int last, int l)
 {
 	while (stack->size_a != -1)
 	{
-		if (stack->a[0] >= stack->lim[first] && stack->a[0] <= stack->lim[last])
-		{
-			pb(stack);
-			if (last <= l - 1)
-			{
-				first++;
-				last++;
-			}
-		}
-		else if (stack->a[0] < stack->lim[first])
+		if (stack->a[0] < stack->lim[first])
 		{
 			pb(stack);
 			rb(stack, "rb\n");
@@ -53,5 +44,15 @@ void	control_pb(t_docket *stack, int first, int last, int l)
 		}
 		else if ((stack->a[0] > stack->lim[last]))
 			ra(stack, "ra\n");
+		else if (stack->a[0] >= stack->lim[first]
+			&& stack->a[0] <= stack->lim[last])
+		{
+			pb(stack);
+			if (last <= l - 1)
+			{
+				first++;
+				last++;
+			}
+		}
 	}
 }
