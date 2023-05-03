@@ -3,14 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:14:02 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/05/02 00:35:39 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:06:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	num_size(char *str)
+{
+	size_t	i;
+	int		j;
+	int		count;
+
+	i = 0;
+	j = 0;
+	count = 0;
+	while (i < ft_strlen(str))
+	{
+		while (j == 0)
+		{
+			if (str[i] == '0' || str[i] == '+' || str[i] == '-')
+				i++;
+			else
+				j = 1;
+		}
+		count++;
+		i++;
+	}
+	return (count);
+}
 
 int	count_extra(char *str)
 {
@@ -30,38 +54,14 @@ int	count_extra(char *str)
 
 int	args_num(int ac, char **str)
 {
-	int	count;
 	int	i;
-
-	count = 0;
+	int	count;
+	
 	i = 1;
+	count = 0;
 	while (i < ac)
 	{
 		count += count_extra(str[i]);
-		i++;
-	}
-	return (count);
-}
-
-int	num_size(char *str)
-{
-	size_t	i;
-	int		check;
-	int		count;
-
-	i = 0;
-	check = 0;
-	count = 0;
-	while (i < ft_strlen(str))
-	{
-		while (i < ft_strlen(str) && check == 0)
-		{
-			if (str[i] == '0' || str[i] == '+' || str[i] == '-')
-				i++;
-			else
-				check = 1;
-		}
-		count++;
 		i++;
 	}
 	return (count);

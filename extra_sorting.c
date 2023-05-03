@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extra_sorting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:13:13 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/05/01 19:13:17 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:20:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	extra_sorting(t_docket *stack)
 
 	while (!(sort_check(stack, stack->a) && stack->size_b == -1))
 	{
-		size_b = 0;
 		size_a = stack->a[stack->size_a];
+		size_b = 0;
 		if (stack->size_b > 0)
 			size_b = stack->b[stack->size_b];
 		control_sorting(stack, size_a, size_b);

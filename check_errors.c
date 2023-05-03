@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 10:46:12 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/05/02 00:35:26 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/03 19:03:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,8 @@ void	check_duplicate(t_docket *stack, int *a)
 
 void	check_limits(t_docket *stack, char *a)
 {
-	if (ft_atoi(a) > INT_MAX || ft_atoi(a) < INT_MIN)
-		error_detected(stack);
 	if (num_size(a) > 10)
+		error_detected(stack);
+	if (ft_atoi(a) > INT_MAX || ft_atoi(a) < INT_MIN)
 		error_detected(stack);
 }
