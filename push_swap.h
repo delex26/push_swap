@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:13:43 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/05/01 20:27:14 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/04 11:21:30 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	pa(t_docket *stack);
 void	pb(t_docket *stack);
 
 //functions//
-
 void	control_pb(t_docket *stack, int min, int max, int len);
 void	make_pb(t_docket *stack, int range);
 void	make_pa(t_docket *stack);

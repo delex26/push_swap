@@ -6,7 +6,7 @@
 /*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:13:21 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/05/01 21:22:04 by hben-mes         ###   ########.fr       */
+/*   Updated: 2023/05/04 11:06:47 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	handle_stack(t_docket *stack, int ac, char **av)
 	int		j;
 	char	**s;
 
+	if (stack->size_a == -1)
+		error_detected(stack);
 	check_cases(stack, ac, av);
 	stack->size_a = -1;
 	stack->size_b = -1;
@@ -41,8 +43,6 @@ void	handle_stack(t_docket *stack, int ac, char **av)
 		}
 		free_split(s);
 	}
-	if (stack->size_a == -1)
-		error_detected(stack);
 	check_duplicate(stack, stack->a);
 	sort_lim(stack, stack->lim, stack->size_lim);
 }

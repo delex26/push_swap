@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hben-mes <hben-mes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 19:14:02 by hben-mes          #+#    #+#             */
-/*   Updated: 2023/05/03 19:06:46 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/04 11:01:46 by hben-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	args_num(int ac, char **str)
 {
 	int	i;
 	int	count;
-	
+
 	i = 1;
 	count = 0;
 	while (i < ac)
